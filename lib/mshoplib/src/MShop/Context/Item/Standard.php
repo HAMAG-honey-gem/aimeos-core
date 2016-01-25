@@ -511,4 +511,28 @@ class Standard implements \Aimeos\MShop\Context\Item\Iface
 
 		return (array) $this->groups;
 	}
+
+
+	/**
+	 * Sets the parent page ID of the logged in user.
+	 *
+	 * @param int|null $pid Page ID
+	 */
+	public function setPid( $pid )
+	{
+		$this->_pid = $pid;
+	}
+
+
+	/**
+	 * Returns the user ID of the logged in user.
+	 *
+	 * @return string User ID of the logged in user
+	 */
+	public function getPid()
+	{
+		return $this->_pid;
+	}
+
+
 }
