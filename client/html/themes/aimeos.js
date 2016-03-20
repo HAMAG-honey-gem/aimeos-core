@@ -671,6 +671,14 @@ AimeosCatalog = {
 
 
 /**
+ * Constants
+ *
+ */
+Constants = {
+	autocomplete: { MIN_LENGTH: 3 }
+};
+
+/**
  * Catalog filter actions
  */
 AimeosCatalogFilter = {
@@ -683,7 +691,7 @@ AimeosCatalogFilter = {
 		var aimeosInputComplete = $(".catalog-filter-search .value");
 
 		aimeosInputComplete.autocomplete({
-			minLength : 3,
+			minLength : Constants.autocomplete.MIN_LENGTH,
 			delay : 200,
 			source : function(req, add) {
 				var nameTerm = {};
@@ -721,7 +729,7 @@ AimeosCatalogFilter = {
 
 				var input = $(this);
 
-				if(input.val() !== '' && input.val().length < 3) {
+				if(input.val() !== '' && input.val().length <  Constants.autocomplete.MIN_LENGTH ) {
 
 					if($(this).has(".search-hint").length === 0) {
 

@@ -9,7 +9,7 @@
 $enc = $this->encoder();
 $phrase = $enc->attr( $this->param( 'f_search' ) );
 $name = $enc->attr( $this->formparam( 'f_search' ) );
-$hint = $this->translate( 'client', 'Please enter at least three characters' );
+$hint = $this->translate( 'client', 'Please enter at least two characters' );
 
 /** client/html/catalog/suggest/url/target
  * Destination of the URL where the controller specified in the URL is known
