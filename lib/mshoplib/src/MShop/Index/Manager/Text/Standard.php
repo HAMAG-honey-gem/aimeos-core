@@ -440,6 +440,9 @@ class Standard
 		{
 			foreach( $items as $item )
 			{
+				//echo '<br/>ITEM: <br />';
+				//echo $item->getCode();
+				//var_dump($item);
 				$parentId = $item->getId(); //  id is not $item->getId() for sub-products
 
 				$listTypes = array();
@@ -496,7 +499,7 @@ class Standard
 					{
 						$this->saveText(
 							$stmt, $parentId, $siteid, $refId, $refItem->getLanguageId(), $listType,
-							$refItem->getType(), 'product', $refItem->getContent(), $date, $editor
+							$refItem->getType(), 'product', $item->getCode() . ': ' . $refItem->getContent(), $date, $editor
 						);
 					}
 				}
@@ -512,7 +515,7 @@ class Standard
 					{
 						$this->saveText(
 							$stmt, $parentId, $siteid, null, $langId, 'default',
-							'name', 'product', $item->getLabel(), $date, $editor
+							'name', 'product', $item->getCode() . ': ' . $item->getLabel(), $date, $editor  // TODO Rebuild index!
 						);
 					}
 				}
