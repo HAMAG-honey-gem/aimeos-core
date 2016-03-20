@@ -21,6 +21,25 @@ class Standard
 	extends \Aimeos\Client\Html\Common\Client\Factory\Base
 	implements \Aimeos\Client\Html\Common\Client\Factory\Iface
 {
+
+	/**
+	 * Frontend user repository
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
+	 * @inject
+	 */
+	protected $frontendUserRepository;
+
+
+	/**
+	 * Group repository
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserGroupRepository
+	 * @inject
+	 */
+	protected $frontendUserGroupRepository;
+
+
 	/** client/html/checkout/standard/order/account/standard/subparts
 	 * List of HTML sub-clients rendered within the checkout standard order account section
 	 *
@@ -265,11 +284,38 @@ class Standard
 				if( ( $item = reset( $result ) ) === false )
 				{
 					$password = substr( md5( microtime( true ) . getmypid() . rand() ), -8 );
+					$password = 'hamag';//md5('hamag');
 					$item = $this->addCustomerData( $manager->createItem(), $addr, $addr->getEmail(), $password );
 					$manager->saveItem( $item );
 
+					//TODO get to work, clear caches in install tool as important actions
+					//$users_group = $this->frontendUserGroupRepository->findByUid(1);
+					//echo 'users group: ' . $users_group;
+					//$feUsers = $this->frontendUserRepository->findAll();
+					//$user; $user = null;
+					//foreach ($feUsers as $feUser)
+					//{
+					//	if ($feUser->getEmail() != $addr->getEmail())
+					//	continue;
+					//	else
+					//	{
+					//              $user = $feUser;
+					//              break;
+					//      }
+					//}
+					//if ($user != null)
+					//      $user->addUsergroup($users_group);
+
+					// Just for consistency, the pid is set in synch with the magic that happens here:
+					// Resources/Private/Extensions/ai-typo3/lib/custom/config/common/mshop/customer/manager/typo3.php
+					$system_folder_users_id = 2; // Get via mouse over the system folder in the typo3 backend navigation. 
+					//var_dump(get_class_methods($context));
+					//=> _pid exists as attribute.
+					$context->setPid( $system_folder_users_id );
 					$context->setUserId( $item->getId() );
 					$this->sendEmail( $addr, $addr->getEmail(), $password );
+					//$this->sendBareMail( 'i@ciry.at', 'Test, password: ' . $password );
+					//$this->sendBareMail( 'info@hamag-maschinenbau.de', '[finished] Account creation. Password. ' . $password );
 				}
 
 				$basket->setCustomerId( $item->getId() );
@@ -325,7 +371,8 @@ class Standard
 		$customer->setCode( $code );
 		$customer->setPassword( $password );
 		$customer->setLabel( $label );
-		$customer->setStatus( 1 );
+		$customer->setStatus( 1 ); 
+		//$customer->setUserGroup(1); // TODO This currently is hard-coded. Group 'all' has id 1.
 
 		/** client/html/checkout/standard/order/account/standard/groupids
 		 * List of groups new customers should be assigned to
