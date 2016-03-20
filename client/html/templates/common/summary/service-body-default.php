@@ -12,7 +12,10 @@ $errors = $this->get( 'summaryErrorCodes', array() );
 <?php $this->block()->start( 'common/summary/service' ); ?>
 <div class="common-summary-service container">
 	<h2><?php echo $enc->html( $this->translate( 'client', 'Services' ), $enc::TRUST ); ?></h2>
-	<div class="item delivery <?php echo ( isset( $errors['service']['delivery'] ) ? 'error' : '' ); ?>">
+	<table>
+	<tbody>
+	<tr>
+	<td class="item delivery <?php echo ( isset( $errors['service']['delivery'] ) ? 'error' : '' ); ?>">
 		<div class="header">
 			<h3><?php echo $enc->html( $this->translate( 'client', 'delivery' ), $enc::TRUST ); ?></h3>
 <?php if( isset( $this->summaryUrlServiceDelivery ) ) : ?>
@@ -45,14 +48,18 @@ $errors = $this->get( 'summaryErrorCodes', array() );
 		</ul>
 <?php	endif; ?>
 <?php } catch( Exception $e ) { ; } ?>
-	</div><!--
-	--><div class="item payment <?php echo ( isset( $errors['service']['payment'] ) ? 'error' : '' ); ?>">
-		<div class="header">
+	</td><!--
+	--><td class="item payment <?php echo ( isset( $errors['service']['payment'] ) ? 'error' : '' ); ?>">
+		<table>
+		<tbody>
+		<tr>
+		<td class="header">
 			<h3><?php echo $enc->html( $this->translate( 'client', 'payment' ), $enc::TRUST ); ?></h3>
 <?php if( isset( $this->summaryUrlServicePayment ) ) : ?>
 			<a class="modify" href="<?php echo $enc->attr( $this->summaryUrlServicePayment ); ?>"><?php echo $enc->html( $this->translate( 'client', 'Change' ), $enc::TRUST ); ?></a>
 <?php endif; ?>
-		</div>
+		</td>
+		<td>
 <?php try { $service = $this->summaryBasket->getService( 'payment' ); ?>
 		<div class="item">
 <?php	if( ( $url = $service->getMediaUrl() ) != '' ) : ?>
@@ -79,7 +86,14 @@ $errors = $this->get( 'summaryErrorCodes', array() );
 		</ul>
 <?php	endif; ?>
 <?php } catch( Exception $e ) { ; } ?>
-	</div>
+		</td>
+		</tr>
+		</tbody>
+		</table>
+	</td>
+	</tr>
+	</tbody>
+	</table>
 <?php echo $this->get( 'serviceBody' ); ?>
 </div>
 <?php $this->block()->stop(); ?>

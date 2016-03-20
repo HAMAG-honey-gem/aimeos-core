@@ -18,7 +18,9 @@ $salutations = array(
 <?php $this->block()->start( 'common/summary/address' ); ?>
 <div class="common-summary-address container">
 	<h2><?php echo $enc->html( $this->translate( 'client', 'Addresses' ), $enc::TRUST ); ?></h2>
-	<div class="item payment <?php echo ( isset( $errors['address']['payment'] ) ? 'error' : '' ); ?>">
+	<table><tbody>
+	<tr>
+	<td class="item payment <?php echo ( isset( $errors['address']['payment'] ) ? 'error' : '' ); ?>">
 		<div class="header">
 			<h3><?php echo $enc->html( $this->translate( 'client', 'Billing address' ), $enc::TRUST ); ?></h3>
 <?php if( isset( $this->summaryUrlAddressBilling ) ) : ?>
@@ -74,7 +76,7 @@ $salutations = array(
 	catch( Exception $e ) { ; }
 ?>
 		</div>
-	</div><div class="item delivery <?php echo ( isset( $errors['address']['delivery'] ) ? 'error' : '' ); ?>">
+	</td><td class="item delivery <?php echo ( isset( $errors['address']['delivery'] ) ? 'error' : '' ); ?>">
 		<div class="header">
 			<h3><?php echo $enc->html( $this->translate( 'client', 'Delivery address' ), $enc::TRUST ); ?></h3>
 <?php if( isset( $this->summaryUrlAddressDelivery ) ) : ?>
@@ -133,7 +135,9 @@ $salutations = array(
 	}
 ?>
 		</div>
-	</div>
+	</td>
+	</tr>
+	</tbody></table>
 <?php echo $this->get( 'addressBody' ); ?>
 </div>
 <?php $this->block()->stop(); ?>
