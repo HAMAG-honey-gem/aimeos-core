@@ -60,6 +60,7 @@ class Standard
 	private $cache;
 
 	private $mandatory = array(
+		'order.base.address.countryid',
 		'order.base.address.salutation',
 		'order.base.address.firstname',
 		'order.base.address.lastname',
@@ -74,8 +75,9 @@ class Standard
 		'order.base.address.company',
 		'order.base.address.vatid',
 		'order.base.address.address2',
-		'order.base.address.countryid',
 		'order.base.address.state',
+		'order.base.address.telephone',
+		'order.base.address.telefax'
 	);
 
 
