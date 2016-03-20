@@ -487,6 +487,11 @@ class Standard
 				$stmt->bind( 28, $date ); // Creation time
 			}
 
+			// HACK hard-coded system folder "Users" id to make login work.
+			// Login requires users to be included in the "all" user group.
+			$system_folder_users_id = 2;
+			$stmt->bind( 29, $system_folder_users_id);
+
 			$stmt->execute()->finish();
 
 			if( $id === null && $fetch === true )
