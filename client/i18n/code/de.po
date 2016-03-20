@@ -59,6 +59,50 @@ msgstr "Farbe"
 msgid "option"
 msgstr "Option"
 
+#. Product attributes
+msgid "clamping_range"
+msgstr "Spannbereich"
+
+msgid "diameter"
+msgstr "Durchmesser"
+
+msgid "difference_measure"
+msgstr "Unterschiedsmass"
+
+msgid "granulation"
+msgstr "K&ouml;rnung"
+
+msgid "note"
+msgstr "Hinweis"
+
+msgid "partitions"
+msgstr "Unterteilungen"
+
+msgid "pole_count"
+msgstr "Polanzahl"
+
+msgid "power"
+msgstr "Leistung"
+
+msgid "rotations_per_minute"
+msgstr "Umdrehungen pro Minute"
+
+msgid "side"
+msgstr "Seite"
+
+msgid "text"
+msgstr "Text"
+
+msgid "type"
+msgstr "Typ"
+
+msgid "voltage"
+msgstr "Spannung"
+
+msgid "weight"
+msgstr "Gewicht"
+
+
 #. Order type value
 msgid "order:repeat"
 msgstr "wiederholt"

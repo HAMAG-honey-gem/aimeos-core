@@ -20,6 +20,49 @@ msgstr ""
 msgid "color"
 msgstr "Color"
 
+#. Product attributes
+msgid "clamping_range"
+msgstr "Clamping range"
+
+msgid "diameter"
+msgstr "Diameter"
+
+msgid "difference_measure"
+msgstr "Difference measure"
+
+msgid "granulation"
+msgstr "Granulation"
+
+msgid "note"
+msgstr "Note"
+
+msgid "partitions"
+msgstr "Partitions"
+
+msgid "pole_count"
+msgstr "Pole count"
+
+msgid "power"
+msgstr "Power"
+
+msgid "rotations_per_minute"
+msgstr "Rotations per minute"
+
+msgid "side"
+msgstr "Side"
+
+msgid "text"
+msgstr "Text"
+
+msgid "type"
+msgstr "Type"
+
+msgid "voltage"
+msgstr "Voltage"
+
+msgid "weight"
+msgstr "Weight"
+
 #. Address salutation
 msgid "company"
 msgstr "Company"
