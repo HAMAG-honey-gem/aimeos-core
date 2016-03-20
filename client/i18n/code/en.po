@@ -33,6 +33,12 @@ msgstr "Difference measure"
 msgid "granulation"
 msgstr "Granulation"
 
+msgid "hole_diameter"
+msgstr "Hole diameter"
+
+msgid "lining_thickness"
+msgstr "Lining thickness"
+
 msgid "note"
 msgstr "Note"
 

@@ -70,7 +70,13 @@ msgid "difference_measure"
 msgstr "Unterschiedsmass"
 
 msgid "granulation"
-msgstr "K&ouml;rnung"
+msgstr "Körnung"
+
+msgid "hole_diameter"
+msgstr "Lochdurchmesser"
+
+msgid "lining_thickness"
+msgstr "Belagdicke"
 
 msgid "note"
 msgstr "Hinweis"
